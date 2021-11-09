@@ -55,35 +55,19 @@ function t4()
 }
 
 
-
-
-
-
-//function mb_strrev($str){
-//    $r = '';
-//    for ($i = mb_strlen($str); $i>=0; $i--) {
-//        $r .= mb_substr($str, $i, 1);
-//    }
-//    return $r;
-//}
-//
-//echo mb_strrev("☆❤world"); // echo "dlrow❤☆"
-
-
-
-
-
-
 function t5()
 {
     global $out5;
-    $i = 1;
-    while ($i < 2) {
-        $out5 = $out5 . " " . strrev($out5);
-        $i = $i + 1;
+    $revers = '';
+    $i = mb_strlen($out5);
+    while ($i>=0) {
+        $revers .= mb_substr($out5, $i, 1);
+        $i = $i - 1;
     }
+    $out5 = $out5.' '.$revers;
     echo $out5;
- var_dump($out5);
+// var_dump($out5);
+// var_dump('5 0 4 1 3 2 2 3 1 4 0 5');
 }
 
 
@@ -142,15 +126,11 @@ function t9()
 function t10()
 {
     global $out10, $t;
-    $i = 2020;
-    while ($i >= $t) {
-        if ($i % 2 == 0) {
-            $out10 = $i . "<br>" . $out10;
-        }
-        $i--;
-        if ($i % 2 != 0) {
-            continue;
-        }
+    $i = $t - 2;
+    while ($i <= 2020) {
+        $i++;
+        if ($i % 2 != 0) continue;
+        $out10 .= $i . " ";
     }
     echo $out10;
 // var_dump($out10);
@@ -160,11 +140,10 @@ function t10()
 function t11()
 {
     global $out11, $num1, $num2;
-    $sum = 0;
+    $out11 = 0;
     $i = $num1;
-    while ($i < $num2) {
-        $sum = $sum + $i;
-        $out11 = $sum;
+    while ($i <= $num2) {
+        $out11 = $out11 + $i;
         $i = $i + 1;
     }
     echo $out11;
@@ -175,11 +154,10 @@ function t11()
 function t12()
 {
     global $out12, $num4, $num5;
-    $multi = 1;
+    $out12 = 1;
     $i = $num4;
-    while ($i < $num5) {
-        $multi = $multi * $i;
-        $out12 = $multi;
+    while ($i <= $num5) {
+        $out12 = $out12 * $i;
         $i = $i + 1;
     }
     echo $out12;
